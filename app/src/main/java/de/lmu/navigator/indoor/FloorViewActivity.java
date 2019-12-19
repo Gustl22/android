@@ -60,7 +60,7 @@ public class FloorViewActivity extends BaseActivity {
                     .commit();
         }
 
-        setTitle(mBuilding.getDisplayName());
+        setTitle(mBuilding.getName());
     }
 
     public TileViewFragment getTileViewFragment() {

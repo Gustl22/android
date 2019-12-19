@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +20,11 @@ import butterknife.ButterKnife;
 import de.lmu.navigator.DataConfig;
 import de.lmu.navigator.R;
 import de.lmu.navigator.database.UpdateService;
+import de.lmu.navigator.database.model.Building;
+import de.lmu.navigator.database.model.Room;
 import de.lmu.navigator.preferences.Preferences;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import me.alexrs.prefs.lib.Prefs;
 
 public class LaunchActivity extends AppCompatActivity {
@@ -48,6 +54,14 @@ public class LaunchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Always set realm schema version
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .name("default.realm")
+                .schemaVersion(DataConfig.SHIPPED_DATA_VERSION)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(config);
 
         if (shouldUpdate()) {
             setContentView(R.layout.activity_launch);

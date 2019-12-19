@@ -12,6 +12,8 @@ public final class Preferences {
 
     public static final String KEY_CRASH_REPORTS = "key_crash_reports";
 
+    public static final String KEY_DISPLAY_SYNONYM = "key_display_synonym";
+
     private Preferences() {}
 
 }

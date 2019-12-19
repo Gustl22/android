@@ -1,11 +1,14 @@
 package de.lmu.navigator.database.model;
 
+import java.util.List;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
 
-public class Room extends RealmObject {
+public class Room extends RealmObject implements Synonymable<Room>{
 
     @Required
     @PrimaryKey
@@ -22,6 +25,8 @@ public class Room extends RealmObject {
     private int posX;
 
     private int posY;
+
+    private RealmList<RoomSynonym> synonyms = new RealmList<>();
 
     public String getCode() {
         return code;
@@ -69,5 +74,18 @@ public class Room extends RealmObject {
 
     public void setFloorCode(String floorCode) {
         this.floorCode = floorCode;
+    }
+
+    @Override
+    public List<RoomSynonym> getSynonyms() {
+        return synonyms;
+    }
+
+    public boolean hasSynonyms() {
+        return synonyms.size() > 0;
+    }
+
+    public void setSynonyms(RealmList<RoomSynonym> synonyms) {
+        this.synonyms = synonyms;
     }
 }

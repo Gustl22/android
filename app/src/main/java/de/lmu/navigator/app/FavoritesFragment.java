@@ -16,7 +16,7 @@ import butterknife.OnClick;
 import de.lmu.navigator.R;
 import de.lmu.navigator.database.ModelHelper;
 import de.lmu.navigator.database.model.Building;
-import de.lmu.navigator.search.SearchBuildingActivity;
+import de.lmu.navigator.search.SearchAllActivity;
 import io.realm.RealmResults;
 
 public class FavoritesFragment extends BaseFragment
@@ -87,7 +87,7 @@ public class FavoritesFragment extends BaseFragment
 
     @OnClick(R.id.fab)
     void addFavorite() {
-        getActivity().startActivityForResult(SearchBuildingActivity.newIntent(getActivity()),
+        getActivity().startActivityForResult(SearchAllActivity.newIntent(getActivity()),
                 MainActivity.REQUEST_CODE_ADD_FAVORITE);
     }
 

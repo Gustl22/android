@@ -201,7 +201,7 @@ public class ClusterMapFragment extends SupportMapFragment implements
             mDialogClusterItems = Lists.newArrayList(cluster.getItems());
             String[] items = new String[cluster.getSize()];
             for (int i = 0; i < mDialogClusterItems.size(); i++) {
-                items[i] = mDialogClusterItems.get(i).getBuilding().getDisplayName();
+                items[i] = mDialogClusterItems.get(i).getBuilding().getName();
             }
 
             new AlertDialog.Builder(getActivity())

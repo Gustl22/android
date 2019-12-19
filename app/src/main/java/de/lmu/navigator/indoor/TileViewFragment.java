@@ -364,7 +364,7 @@ public class TileViewFragment extends BaseFragment implements TileViewEventListe
         mTileView.scrollToAndCenter(room.getPosX(), room.getPosY());
 
         mRoomDetailView.setVisibility(View.VISIBLE);
-        mRoomDetailName.setText(getString(R.string.floorview_selected_room, room.getName()));
+        mRoomDetailName.setText(getString(R.string.floorview_selected_room, ModelHelper.getName(room)));
         mRoomDetailFloor.setText(room.getFloor().getName());
 
         mSelectedRoom = room;

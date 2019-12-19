@@ -32,7 +32,7 @@ public class FavoritesAdapter extends BuildingsAdapter {
     @Override
     protected void onBindBilduing(RecyclerView.ViewHolder vh, Building building) {
         FavoritesAdapter.ViewHolder holder = (FavoritesAdapter.ViewHolder) vh;
-        holder.name.setText(building.getDisplayName());
+        holder.name.setText(building.getName());
 
         int imageSize = mContext.getResources().getDimensionPixelSize(R.dimen.image_size_favorite);
         Picasso.get()

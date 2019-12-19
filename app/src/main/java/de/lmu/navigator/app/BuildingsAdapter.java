@@ -56,6 +56,6 @@ public abstract class BuildingsAdapter extends RealmAdapter<Building> {
                     .width(size)
                     .height(size)
                 .endConfig()
-                .buildRound(b.getDisplayName().substring(0, 1), color);
+                .buildRound(b.getName().substring(0, 1), color);
     }
 }
